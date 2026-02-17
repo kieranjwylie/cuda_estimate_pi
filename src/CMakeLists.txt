@@ -13,3 +13,10 @@ set (files
 add_executable(estimate_pi ${files})
 
 target_compile_options(estimate_pi PRIVATE -O3 -Wall -Wextra)
+
+add_custom_target(
+    clang-format
+    COMMAND clang-format -i ${files}
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    COMMENT "Running clang-format on source files"
+)

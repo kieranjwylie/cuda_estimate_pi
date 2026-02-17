@@ -1,1 +1,2 @@
-int estimate_pi(int points_per_thread, int threads, int blocks, unsigned long seed, float *milliseconds, double *pi, long long *total_points);
+int estimate_pi(int points_per_thread, int threads, int blocks, unsigned long seed,
+                float *milliseconds, double *pi, long long *total_points);
