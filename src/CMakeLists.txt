@@ -3,6 +3,13 @@ project(estimate_pi LANGUAGES CXX CUDA)
 
 set(CMAKE_CUDA_STANDARD 14)
 
-add_executable(estimate_pi main.cu)
+set (files
+    main.cpp
+    pi.cu
+    pi.h
+    error.h
+)
 
-target_compile_options(estimate_pi PRIVATE -O3)
+add_executable(estimate_pi ${files})
+
+target_compile_options(estimate_pi PRIVATE -O3 -Wall -Wextra)
