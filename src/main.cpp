@@ -1,3 +1,21 @@
+/**
+ * @file main.cpp
+ * @author Kieran Wylie
+ * @brief Main entry point for the Monte Carlo Pi estimation program. 
+ *        Handles command line arguments, device property output, and calls the estimation function.
+ * @version 1.0
+ * @date 2024-06-01
+ *
+ * Supported command line arguments:
+ * -t <threads>: Number of threads per block (default: 256)
+ * -b <blocks>: Number of blocks in the grid (default: 256)
+ * -p <points>: Number of points each thread will generate (default: 100)
+ * -max: If present, outputs the maximum threads per block and grid size of the device and exits
+ * 
+ * Output format:
+ * total threads, total points, estimated pi, error, time taken (in milliseconds)
+ */
+
 #include <curand_kernel.h>
 #include <iomanip>
 #include <iostream>
@@ -9,6 +27,23 @@
 
 #define PI 3.14159265358979323846
 
+/** 
+  * @brief Reads command line arguments and sets the corresponding variables
+  * 
+  * Supported arguments: \n
+  * -t <threads>: Number of threads per block (default: 256) \n
+  * -b <blocks>: Number of blocks in the grid (default: 256) \n
+  * -p <points>: Number of points each thread will generate (default: 100) \n
+  * -max: If present, outputs the maximum threads per block and grid size of the device and exits \n
+  * 
+  * @param argc Argument count from main
+  * @param argv Argument vector from main
+  * @param threads Pointer to store the number of threads per block
+  * @param blocks Pointer to store the number of blocks in the grid
+  * @param points Pointer to store the number of points each thread will generate
+  * @param output_max_threads Pointer to store whether to output max threads and exit
+  * @return 0 on success, -1 on failure (e.g. unknown argument
+  */
 int read_command_line(int argc, char *argv[], int *threads, int *blocks, int *points,
                       bool *output_max_threads) {
 
@@ -38,6 +73,11 @@ int read_command_line(int argc, char *argv[], int *threads, int *blocks, int *po
   return 0;
 }
 
+/** 
+  * @brief Outputs the properties of the current CUDA device, including max threads per block and grid size
+  * 
+  * @return 0 on success, -1 on failure (e.g. CUDA error)
+  */
 int output_device_props() {
   int device;
   cudaGetDevice(&device);
