@@ -27,6 +27,12 @@ __global__ void estimate_pi(int *d_counts, int points_per_thread, unsigned long 
 
 int read_command_line(int argc, char *argv[], int* threads, int* blocks, int* points, bool* output_max_threads) {
 
+    // Default values
+    *threads = 256;
+    *blocks = 256;
+    *points = 100;
+    *output_max_threads = false;
+
     for (int i = 1; i < argc; i++) {
         std::string arg = argv[i];
 
@@ -75,7 +81,7 @@ int output_device_props() {
 
 int main(int argc, char *argv[]) {    
     int threads, blocks, points_per_thread;
-    bool output_max_threads = false;
+    bool output_max_threads;
 
     // Commmand line input, fails if invalid arguments are given
     int ierr = read_command_line(argc, argv, &threads, &blocks, &points_per_thread, &output_max_threads);
