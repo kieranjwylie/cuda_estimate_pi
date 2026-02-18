@@ -106,7 +106,6 @@ int estimate_pi(int points_per_thread, int threads, int blocks, unsigned long se
   ///////////////////////////////////////////////////////////////////////////////////////////////
 
   CUDA_CHECK(cudaFree(d_counts));
-  free(h_counts);
 
   return 0;
 }
