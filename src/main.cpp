@@ -4,7 +4,7 @@
  * @brief Main entry point for the Monte Carlo Pi estimation program. 
  *        Handles command line arguments, device property output, and calls the estimation function.
  * @version 1.0
- * @date 2024-06-01
+ * @date 2026-02-18
  *
  * Supported command line arguments:
  * -t <threads>: Number of threads per block (default: 256)
@@ -16,7 +16,7 @@
  * total threads, total points, estimated pi, error, time taken (in milliseconds)
  */
 
-#include <curand_kernel.h>
+#include <cuda_runtime.h>
 #include <iomanip>
 #include <iostream>
 #include <stdio.h>
