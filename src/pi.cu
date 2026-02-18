@@ -8,11 +8,19 @@
  */
 
 
-#include "error.cuh"
+#include "error.h"
 #include <cuda_runtime.h> 
 #include <curand_kernel.h>
 #include <vector>
 
+#define CUDA_CHECK(err) cudaCheck(err)
+
+inline void cudaCheck(cudaError_t err) {
+  if (err != cudaSuccess) {
+    std::cerr << "CUDA Error: " << cudaGetErrorString(err) << " (" << static_cast<int>(err) << ")"
+              << std::endl;
+    std::exit(EXIT_FAILURE);
+  }
 
 /** @brief Kernel to generate a set amount of random points and check how many are inside a quarter circle. The total number
  *         is fed back to the CPU. 

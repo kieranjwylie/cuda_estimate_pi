@@ -1,5 +1,5 @@
 /**
- * @file pi.cuh
+ * @file pi.h
  * @author Kieran Wylie
  * @brief Global caller function to use the GPU to estimate PI.
  * @version 1.0

@@ -6,8 +6,8 @@ set(CMAKE_CUDA_STANDARD 14)
 set (files
     main.cpp
     pi.cu
-    pi.cuh
-    error.cuh
+    pi.h
+    error.h
 )
 
 add_executable(estimate_pi ${files})
