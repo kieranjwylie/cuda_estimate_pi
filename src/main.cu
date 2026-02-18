@@ -1,5 +1,5 @@
 /**
- * @file main.cpp
+ * @file main.cu
  * @author Kieran Wylie
  * @brief Main entry point for the Monte Carlo Pi estimation program. 
  *        Handles command line arguments, device property output, and calls the estimation function.

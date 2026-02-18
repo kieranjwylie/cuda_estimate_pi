@@ -4,7 +4,7 @@ project(estimate_pi LANGUAGES CXX CUDA)
 set(CMAKE_CUDA_STANDARD 14)
 
 set (files
-    main.cpp
+    main.cu
     pi.cu
     pi.h
     error.h
