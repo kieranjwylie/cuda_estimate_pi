@@ -6,7 +6,7 @@ set(CMAKE_CUDA_STANDARD 14)
 set (files
     main.cpp
     pi.cu
-    pi.h
+    pi.cuh
     error.cuh
 )
 
