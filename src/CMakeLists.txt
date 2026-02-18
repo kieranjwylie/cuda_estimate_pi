@@ -7,7 +7,7 @@ set (files
     main.cpp
     pi.cu
     pi.h
-    error.h
+    error.cuh
 )
 
 add_executable(estimate_pi ${files})
