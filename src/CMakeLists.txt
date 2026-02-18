@@ -10,7 +10,7 @@ set (files
     error.h
 )
 
-add_executable(estimate_pi ${files)
+add_executable(estimate_pi ${files})
 
 target_link_libraries(estimate_pi PRIVATE curand)
 
