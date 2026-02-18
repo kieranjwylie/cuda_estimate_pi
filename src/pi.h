@@ -6,6 +6,13 @@
  * @date 2026-02-18
  */
 
+/** 
+  * @brief Outputs the properties of the current CUDA device, including max threads per block and grid size
+  * 
+  * @return 0 on success, -1 on failure (e.g. CUDA error)
+  */
+int output_device_props()
+
 /** @brief Finds an estimate for PI using monte carlo
   * @param points_per_thread: total number of random points to generate
   * @param threads: number of threads per block to use for the kernel launch

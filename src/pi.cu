@@ -41,6 +41,27 @@ __global__ void rand_pi(int *d_counts, int points_per_thread, unsigned long seed
   d_counts[idx] = count;
 }
 
+int output_device_props() {
+  int device;
+  cudaGetDevice(&device);
+
+  cudaDeviceProp prop;
+  CUDA_CHECK(cudaGetDeviceProperties(&prop, device));
+
+  std::cout << "Device Name: " << prop.name << std::endl;
+  std::cout << "Max Threads per Block: " << prop.maxThreadsPerBlock << std::endl;
+
+  // Maximum threads per block in each dimension (x, y, z)
+  std::cout << "Max threads per block dimension: " << prop.maxThreadsDim[0] << " x "
+            << prop.maxThreadsDim[1] << " x " << prop.maxThreadsDim[2] << std::endl;
+
+  // Maximum number of blocks in the grid (x, y, z)
+  std::cout << "Max grid size (blocks per dimension): " << prop.maxGridSize[0] << " x "
+            << prop.maxGridSize[1] << " x " << prop.maxGridSize[2] << std::endl;
+
+  return 0;
+}
+
 int estimate_pi(int points_per_thread, int threads, int blocks, unsigned long seed,
                 float *milliseconds, double *pi, long long *total_points) {
   // Take a record of time taken for calculation + memory transfer only
