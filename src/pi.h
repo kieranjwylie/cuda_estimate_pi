@@ -19,5 +19,5 @@ int output_device_props()
   * @param blocks: number of blocks to use for the kernel launch
   * @param seed: seed for random number generation
   */
-int estimate_pi(int points_per_thread, int threads, int blocks, unsigned long seed,
+int estimate_pi(int points_per_thread, int threads, int blocks, unsigned long seed, \
                 float *milliseconds, double *pi, long long *total_points);

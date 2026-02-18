@@ -9,6 +9,8 @@
 
 
 #include "error.h"
+#include "pi.h"
+
 #include <cuda_runtime.h> 
 #include <curand_kernel.h>
 #include <vector>
