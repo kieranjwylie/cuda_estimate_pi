@@ -21,8 +21,8 @@
 #include <stdio.h>
 #include <string>
 
-#include "error.h"
-#include "pi.h"
+#include "error.cuh"
+#include "pi.cuh"
 
 #define PI 3.14159265358979323846
 

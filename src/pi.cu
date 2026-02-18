@@ -8,7 +8,7 @@
  */
 
 
-#include "error.h"
+#include "error.cuh"
 #include <cuda_runtime.h> 
 #include <curand_kernel.h>
 #include <vector>

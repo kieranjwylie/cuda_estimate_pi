@@ -1,5 +1,5 @@
 /**
- * @file error.h
+ * @file error.cuh
  * @author Kieran Wylie
  * @brief Handles error checks for CUDA calls and standard function calls.
  * @version 1.0
