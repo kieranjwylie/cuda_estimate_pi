@@ -90,7 +90,7 @@ int estimate_pi(int points_per_thread, int threads, int blocks, unsigned long se
   rand_pi<<<blocks, threads>>>(d_counts, points_per_thread, seed);
 
   std::vector<int> h_counts(total_threads);
-  CUDA_CHECK(cudaMemcpy(h_counts, d_counts, total_threads * sizeof(int), cudaMemcpyDeviceToHost));
+  CUDA_CHECK(cudaMemcpy(h_counts.data(), d_counts, total_threads * sizeof(int), cudaMemcpyDeviceToHost));
 
   long long total_in_circle = 0;
   for (int i = 0; i < total_threads; i++)
