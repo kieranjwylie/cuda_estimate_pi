@@ -16,6 +16,7 @@
  * total threads, total points, estimated pi, error, time taken (in milliseconds)
  */
 
+#include <cmath>
 #include <iomanip>
 #include <iostream>
 #include <stdio.h>
